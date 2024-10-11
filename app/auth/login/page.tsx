@@ -39,7 +39,7 @@ const LoginPage: React.FC = () => {
       return;
     }
 
-    try {
+    /*    try {
       const response = await fetch(`${config.API_BASE_URL}/login`, {
         method: "POST",
         headers: {
@@ -57,46 +57,56 @@ const LoginPage: React.FC = () => {
           role: data.rol,
         }
         setUser(newData); // Set user data in the store, the data is email, name and role  
-        router.push("/admin/dashboard");
+        router.push("/core/dashboard");
       }
     } catch (error) {
       toast.error("Error al iniciar sesion");
-    }
-/* 
-    if (formData.password === "admin" && formData.email === "admin@admin.com") {
-      router.push("/admin/dashboard");
-      setUser({
-        email: formData.email,
-        name: "Admin",
-        role: "admin",
-      });
-      return;
-
-    } else if (formData.password === "user" && formData.email === "user@user.com") {
-      router.push("/admin/dashboard");
-      setUser({
-        email: formData.email,
-        name: "User",
-        role: "user",
-      });
-      return;
-
-    } else if (formData.password === "owner" && formData.email === "owner@owner.com") {
-      router.push("/admin/dashboard");
-      setUser({
-        email: formData.email,
-        name: "Owner",
-        role: "owner",
-      });
-      return;
-    }
-
- */
-  }
+    } */
+    setLoading(true);
+    setTimeout(() => {
+      if (
+        formData.password === "admin" &&
+        formData.email === "admin@admin.com"
+      ) {
+        router.push("/core/dashboard");
+        setUser({
+          email: formData.email,
+          name: "Admin",
+          role: "admin",
+        });
+        setLoading(false);
+        return;
+      } else if (
+        formData.password === "user" &&
+        formData.email === "user@user.com"
+      ) {
+        router.push("/core/dashboard");
+        setUser({
+          email: formData.email,
+          name: "User",
+          role: "user",
+        });
+        setLoading(false);
+        return;
+      } else if (
+        formData.password === "owner" &&
+        formData.email === "owner@owner.com"
+      ) {
+        router.push("/core/dashboard");
+        setUser({
+          email: formData.email,
+          name: "Owner",
+          role: "owner",
+        });
+        setLoading(false);
+        return;
+      }
+    }, 2000);
+  };
 
   const handleForgotPassword = () => {
     toast.error("Funcionalidad no disponible");
-  }
+  };
   /* 
   const handleForgotPassword = async () => {
     const { value: email } = await Swal.fire({
@@ -147,8 +157,10 @@ const LoginPage: React.FC = () => {
       <div className="border border-gray-300 rounded p-5 max-w-[500px] bg-white">
         <div className="flex justify-center items-center gap-1 py-6">
           <span className="flex justify-center items-center gap-1 font-bold text-gray-600">
-          <FaDropbox size={40} />
-          <h1>Inventory<span className="font-bold text-blue-400">Pro</span></h1>
+            <FaDropbox size={40} />
+            <h1>
+              Inventory<span className="font-bold text-blue-400">Pro</span>
+            </h1>
           </span>
         </div>
         <p className="font-light text-sm py-2">
@@ -175,10 +187,20 @@ const LoginPage: React.FC = () => {
             placeholder="********"
           />
           <div className="flex flex-col w-full p-5 justify-center items-center gap-2">
-            <Button type="submit" label="Iniciar Sesion" variant="primary" isLoading={loading} isDisabled={loading} />
+            <Button
+              type="submit"
+              label="Iniciar Sesion"
+              variant="primary"
+              isLoading={loading}
+              isDisabled={loading}
+            />
           </div>
         </form>
-        <Link href="#" onClick={handleForgotPassword} className="hover:underline text-sm font-light">
+        <Link
+          href="#"
+          onClick={handleForgotPassword}
+          className="hover:underline text-sm font-light"
+        >
           Olvidaste tu Contraseña?
         </Link>
       </div>

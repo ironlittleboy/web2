@@ -1,4 +1,3 @@
-
 import LateralNavbar from "@/components/ui/lateralNavbar/LateralNavbar";
 import Logo from "@/components/ui/logo/Logo";
 import React from "react";
@@ -12,8 +11,7 @@ interface LayoutProps {
 export const metadata = {
   title: "Sistema de Inventario | ADMIN",
   description: "Sistema de gestion de inventariado",
-};
-
+}; 
 
 const Layout = ({ children }: LayoutProps) => {
   return (
@@ -22,12 +20,10 @@ const Layout = ({ children }: LayoutProps) => {
         <Logo href={"/admin/dashboard"}/>
         <div className="flex justify-between items-center gap-2">
           <span className="font-bold flex justify-center items-center text-sm text-blue-400">
-            {metadata.title}
-            {}
           </span>
         </div>
       </header>
-      <div>
+      <div className="flex justify-center items-start w-full min-h-[calc(100vh-80px)]">
         {children}
       </div>
     </div>

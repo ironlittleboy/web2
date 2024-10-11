@@ -20,20 +20,18 @@ import NavLinkItem from "./NavLinkItem";
 import Button from "@/components/shared/Button/Button";
 import { useRouter } from "next/navigation";
 import useUserStore from "@/stores/useUserStore";
-import { StoreUser } from "@/interfaces/IStoreUser";
 
 const LateralNavbar = () => {
   const router = useRouter();
   const user = useUserStore((state) => state.user);
   
-  console.log(user?.role);
 
   const logout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("role");
     document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     document.cookie = "role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    router.push("/");
+     router.push("/");
   };
 
   return (
@@ -51,43 +49,43 @@ const LateralNavbar = () => {
               <h3 className="font-bold text-xl mb-3">Administracion</h3>
               <ul>
                 <NavLinkItem
-                  href="/admin/dashboard"
+                  href="/core/dashboard"
                   label="Panel de control"
                   Icon={BsColumnsGap}
                 />
                 <NavLinkItem
-                  href="/admin/sitios"
+                  href="/core/sitios"
                   label="Bodegas y Sitios"
                   Icon={CiBoxes}
                 />
                 <NavLinkItem
-                  href="/admin/users"
+                  href="/core/users"
                   label="Usuarios"
                   Icon={FaRegUser}
                 />
                 <NavLinkItem
-                  href="/admin/products"
+                  href="/core/products"
                   label="Productos"
                   Icon={BsBox2}
                 />
                 <NavLinkItem
-                  href="/admin/tags"
+                  href="/core/tags"
                   label="Etiquetas"
                   Icon={GrNote}
                 />
                 <NavLinkItem
-                  href="/admin/providers"
+                  href="/core/providers"
                   label="Proveedores"
                   Icon={FaRegUser}
                 />
-                <NavLinkItem href="/admin/lotes" label="Lotes" Icon={CiBoxes} />
+                <NavLinkItem href="/core/lotes" label="Lotes" Icon={CiBoxes} />
                 <NavLinkItem
-                  href="/admin/chatbot"
+                  href="/core/chatbot"
                   label="ChatBot"
                   Icon={CiWallet}
                 />
                 <NavLinkItem
-                  href="/admin/retornos"
+                  href="/core/retornos"
                   label="Retornos"
                   Icon={CiAirportSign1}
                 />
@@ -97,17 +95,17 @@ const LateralNavbar = () => {
                   Icon={CiDollar}
                 />
                 <NavLinkItem
-                  href="/admin/permission"
+                  href="/core/permission"
                   label="Roles y Permisos"
                   Icon={MdOutlineTaskAlt}
                 />
                 <NavLinkItem
-                  href="/admin/settings"
+                  href="/core/settings"
                   label="Configuracion"
                   Icon={IoSettingsOutline}
                 />
                 <NavLinkItem
-                  href="/admin/support"
+                  href="/core/support"
                   label="Soporte"
                   Icon={MdSupport}
                 />
@@ -128,36 +126,36 @@ const LateralNavbar = () => {
               <h3 className="font-bold text-xl mb-3">Propietario</h3>
               <ul>
                 <NavLinkItem
-                  href="/owner/dashboard"
+                  href="/core/dashboard"
                   label="Panel de control"
                   Icon={BsColumnsGap}
                 />
                 <NavLinkItem
-                  href="/owner/sitios"
+                  href="/core/sitios"
                   label="Bodegas y Sitios"
                   Icon={CiBoxes}
                 />
                 <NavLinkItem
-                  href="/owner/users"
+                  href="/core/users"
                   label="Usuarios"
                   Icon={FaRegUser}
                 />
                 <NavLinkItem
-                  href="/owner/products"
+                  href="/core/products"
                   label="Productos"
                   Icon={BsBox2}
                 />
                 <NavLinkItem
-                  href="/owner/tags"
+                  href="/core/tags"
                   label="Etiquetas"
                   Icon={GrNote}
                 />
                 <NavLinkItem
-                  href="/owner/providers"
+                  href="/core/providers"
                   label="Proveedores"
                   Icon={FaRegUser}
-                />
-                <NavLinkItem href="/owner/lotes" label="Lotes" Icon={CiBoxes} />
+                />core
+                <NavLinkItem href="/core/lotes" label="Lotes" Icon={CiBoxes} />
                 <li className="text-sm cursor-pointer font-light px-3 py-2 flex justify-start items-center gap-2">
                   <Button
                     label="Salir"
@@ -175,12 +173,12 @@ const LateralNavbar = () => {
               <h3 className="font-bold text-xl mb-3">Usuario</h3>
               <ul>
                 <NavLinkItem
-                  href="/user/dashboard"
+                  href="/core/dashboard"
                   label="Panel de control"
                   Icon={BsColumnsGap}
                 />
                 <NavLinkItem
-                  href="/user/sitios"
+                  href="/core/sitios"
                   label="Bodegas y Sitios"
                   Icon={CiBoxes}
                 />

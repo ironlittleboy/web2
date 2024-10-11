@@ -48,14 +48,6 @@ const LoteModal = () => {
         value={formData.loteCode}
       />
       <FormInput 
-        idInput='expirationDate'
-        label='Fecha de expiracion'
-        name='expirationDate'
-        onChange={handleChange}
-        type='date'
-        value={formData.expirationDate}
-      />
-      <FormInput 
         idInput='manufactoringDate'
         label='Fecha de fabricacion'
         name='manufactoringDate'
@@ -89,7 +81,7 @@ const LoteModal = () => {
           value={formData.expirationDate}
         />
       )}
-      <div>
+      <div className='mt-3'>
         <Button variant='primary' label='Crear lote' type='submit'/>
       </div>
     </Form>
