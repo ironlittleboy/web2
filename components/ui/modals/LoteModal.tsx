@@ -7,6 +7,10 @@ import { ILote } from '@/interfaces/ILote';
 import FormInput from '@/components/shared/Form/FormInput';
 import FormCheckbox from '@/components/shared/Form/FormCheckbox';
 import Button from '@/components/shared/Button/Button';
+import FormSelectInput from '@/components/shared/Form/selectElement/FormSelectInput';
+import { useFetch } from '@/hooks/useFetch';
+import { config } from '@/config/config';
+import Label from '../label/Label';
 
 const LoteModal = () => {
   const loteModal = useLoteModal();
@@ -18,6 +22,14 @@ const LoteModal = () => {
     productId: 0,
     providerId: 0,
     quantity: 0
+  });
+
+  const {data: productsData, loading: productsLoading, error: productsError } = useFetch({
+    url: `${config.API_BASE_URL}/products`
+  });
+
+  const {data: providersData, loading: providersLoading, error: providersError } = useFetch({
+    url: `${config.API_BASE_URL}/providers`
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -39,6 +51,10 @@ const LoteModal = () => {
 
   const LoteModalBody = (
     <Form onSubmit={handleSubmit}>
+      {productsLoading && <Label text='Cargando productos' type='info'/>}
+      {productsError && <Label text='Error al cargar productos' type='error'/>}
+      {providersLoading && <Label text='Cargando proveedores' type='info'/>}
+      {providersError && <Label text='Error al cargar proveedores' type='error'/>}
       <FormInput 
         idInput='loteCode'
         label='Codigo de lote'
@@ -47,6 +63,26 @@ const LoteModal = () => {
         type='text'
         value={formData.loteCode}
       />
+      <FormSelectInput 
+        selectId='productId'
+        label='Producto'
+        selectName='productId'
+        onChange={handleChange}
+        options={[
+          { value: 0, name: 'Selecciona un producto' }
+        ]}
+        value={formData.productId.toString()}
+      />
+      <FormSelectInput
+        selectId='providerId'
+        label='Proveedor'
+        selectName='providerId'
+        onChange={handleChange}
+        options={[
+          { value: 0, name: 'Selecciona un proveedor' }
+        ]}
+        value={formData.providerId.toString()}
+        />
       <FormInput 
         idInput='manufactoringDate'
         label='Fecha de fabricacion'

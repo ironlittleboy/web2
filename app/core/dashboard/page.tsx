@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/components/shared/Button/Button";
-import DashboardSumaryCard from "@/components/ui/Cards/DashboardSumaryCard";
+import DashboardSumaryCard from "./components/cards/DashboardSumaryCard";
 import LateralNavbar from "@/components/ui/lateralNavbar/LateralNavbar";
 import React, { useState } from "react";
 import { useFetch } from "@/hooks/useFetch";

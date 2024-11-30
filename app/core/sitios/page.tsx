@@ -61,6 +61,7 @@ const SitesPage = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
 
   const sitesModal = useSitesModal(); 
+  
   useEffect(() => {
     const loadSites = async () => {
       try {
@@ -100,12 +101,8 @@ const SitesPage = () => {
       Swal.fire("Error", "No se pudo crear el sitio.", "error");
     }
   };
-  // body of the modal
-  const BodyModal = () => {
-    return (<div>
-      body of the modal
-    </div>)
-  }
+
+
   return (
     <main className="flex justify-center items-start w-full min-h-[calc(100vh-80px)]">
       <LateralNavbar />

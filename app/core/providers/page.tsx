@@ -96,18 +96,21 @@ const ProvidersPage = () => {
         <div className="text-start w-full mb-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Administración de Proveedores</h1>
         </div>
-        <Button
-          label="Agregar Proveedor"
-          type="button"
-          variant="primary"
-          onClick={providerModal.onOpen}
-        />
+        {error && <Label type="error" text='Error al cargar proveedores '/>}
+        {loading && <Label type="info" text='Cargando proveedores...'/>}
+
         <ProviderModal />
 
         <div className="flex flex-col w-full">
           <h2 className="font-bold text-xl text-gray-700 mb-4">Lista de Proveedores Disponibles</h2>
-          {error && <Label type="error" text='Error al cargar proveedores '/>}
-          {loading && <Label type="info" text='Cargando proveedores...'/>}
+          <div className=" flex mb-3">
+            <Button
+              label="Agregar Proveedor"
+              type="button"
+              variant="primary"
+              onClick={providerModal.onOpen}
+            />
+          </div>
           <div className="overflow-x-auto">
             <table className="min-w-full border border-gray-300 rounded-lg shadow-sm">
               <thead>

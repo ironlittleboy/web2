@@ -19,7 +19,7 @@ const FormSelectInput: React.FC<FormSelectInputProps> = ({
 }) => {
   return (
     <div className="mb-4">
-      <label htmlFor={selectId} className="block text-gray-700 text-sm font-bold mb-2">
+      <label htmlFor={selectId} className="block text-gray-700 text-sm mb-2">
         {label}
       </label>
       <select

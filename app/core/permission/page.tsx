@@ -32,7 +32,7 @@ const Page = () => {
           Roles y Permisos
         </h1>
         <div>
-
+          
         </div>
       </div>
     </main>

@@ -40,13 +40,13 @@ const Page = () => {
   return (
     <main className="flex justify-center items-start w-full">
       <LateralNavbar />
-      <div className="w-full flex flex-col justify-start items-center min-h-[calc(90vh-80px)] p-4">
+      <div className="w-full flex flex-col justify-start items-start min-h-[calc(90vh-80px)] p-4">
         {userLoading && <Label type="info" text="Cargando usuarios" />}
         {userError && <Label type="error" text="Error al cargar usuarios" />}
         <div className="text-start w-full mb-4">
           <h1 className="text-2xl font-bold">Administración de usuarios</h1>
         </div>
-        <div className="flex items-start justify-start">
+        <div className="flex">
           <Button
             type="button"
             onClick={userModal.onOpen}

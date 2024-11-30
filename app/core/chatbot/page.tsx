@@ -7,8 +7,11 @@ import { config } from "@/config/config";
 import { getTokenFromCookie } from "@/config/config";
 import { useFetch } from "@/hooks/useFetch";
 import Label from "@/components/ui/label/Label";
-import { cookies } from "next/headers";
+import { useChatBotModal } from "@/hooks/modals/useChatBotModal";
+import ChatBotModal from "@/components/ui/modals/ChatBotModal";
+
 const ChatBotPage = () => {
+  const chatBotModal = useChatBotModal();
   const [questions, setQuestions] = useState<any[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
@@ -57,7 +60,13 @@ const ChatBotPage = () => {
             <Label type="error" text="Error al cargar preguntas" />
           )}
           <div className="overflow-x-auto">
-
+            <Button 
+              variant="primary" 
+              onClick={chatBotModal.onOpen} 
+              label="Crear pregunta" 
+              type="button"
+            />
+            <ChatBotModal />
           </div>
         </div>
       </div>

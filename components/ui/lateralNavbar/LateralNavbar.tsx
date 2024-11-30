@@ -1,18 +1,14 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+
 import { BsBox2, BsBoxArrowLeft, BsColumnsGap } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdSupport } from "react-icons/md";
-import { GrNote } from "react-icons/gr";
 
 import {
   CiAirportSign1,
   CiBoxes,
-  CiChat1,
   CiDollar,
-  CiPlane,
   CiWallet,
 } from "react-icons/ci";
 
@@ -20,18 +16,20 @@ import NavLinkItem from "./NavLinkItem";
 import Button from "@/components/shared/Button/Button";
 import { useRouter } from "next/navigation";
 import useUserStore from "@/stores/useUserStore";
+import { GrNote } from "react-icons/gr";
 
 const LateralNavbar = () => {
+  
   const router = useRouter();
   const user = useUserStore((state) => state.user);
-  
+
 
   const logout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("role");
-    document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    document.cookie = "role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-     router.push("/");
+    // document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    // document.cookie = "role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    router.push("/");
   };
 
   return (
